@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Study GLOBAL - Uluslararası Eğitim ve Dil Okulları Başvuru Merkezi</title>
+    <!-- Tailwind CSS CDN (Hızlı ve modern tasarım için) -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome (İkonlar için) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        html { scroll-behavior: smooth; }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800 font-sans antialiased">
+
+    <!-- ÜST BİLGİ / HEADER -->
+    <header class="sticky top-0 z-50 bg-white border-b border-slate-200 shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            <!-- Yeni Logo: Study GLOBAL -->
+            <a href="#" class="flex items-center space-x-2">
+                <span class="text-2xl font-black tracking-tight text-[#0F172A]">STUDY <span class="text-blue-600">GLOBAL</span></span>
+                <span class="text-xs bg-emerald-100 text-emerald-700 font-bold px-2 py-0.5 rounded-full">Official</span>
+            </a>
+
+            <!-- Navigasyon (Açıklayıcı ve Sade) -->
+            <nav class="hidden md:flex space-x-8 font-medium text-slate-600">
+                <a href="#hizmetler" class="hover:text-blue-600 transition">Hizmetler</a>
+                <a href="#neden-biz" class="hover:text-blue-600 transition">Neden Study GLOBAL?</a>
+                <a href="#surec" class="hover:text-blue-600 transition">Nasıl Çalışır?</a>
+                <a href="#iletisim" class="hover:text-blue-600 transition">İletişim</a>
+            </nav>
+
+            <!-- Satış Teşvik Butonu (CTA) -->
+            <div class="flex items-center space-x-4">
+                <a href="tel:+902167094171" class="hidden lg:flex items-center text-sm font-semibold text-slate-600 hover:text-blue-600">
+                    <i class="fa-solid fa-phone mr-2 text-blue-600"></i> 0216 709 4171
+                </a>
+                <a href="#basvuru-formu" class="bg-blue-600 hover:bg-blue-700 text-white font-semibold px-5 py-2.5 rounded-lg shadow-md hover:shadow-lg transition text-sm">
+                    Ücretsiz Danışmanlık Al
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- HERO SECTION (Giriş & Hızlı Form) -->
+    <section class="relative bg-gradient-to-br from-[#0F172A] via-[#1E293B] to-[#0F172A] py-16 lg:py-24 text-white overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+            
+            <!-- Sol Sütun: Değer Önerisi -->
+            <div class="lg:col-span-7 space-y-6">
+                <span class="inline-flex items-center bg-blue-500/10 text-blue-400 text-sm font-semibold px-3 py-1 rounded-full border border-blue-500/20">
+                    Uluslararası Eğitim Danışmanlığı
+                </span>
+                <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight leading-tight">
+                    Yurtdışında Eğitim <br class="hidden sm:inline"> Hayallerinizi <span class="text-blue-400">Ücretsiz</span> Gerçekleştirin
+                </h1>
+                <p class="text-lg text-slate-300 max-w-2xl">
+                    Seçkin dünya üniversiteleri ve dil okullarının resmi başvuru merkezi olarak; okul seçiminden vize onayına kadar tüm sürecinizi <strong>0 ücret politikasıyla</strong> yönetiyoruz.
+                </p>
+                <!-- Güven Noktaları -->
+                <div class="grid grid-cols-2 gap-4 pt-4 text-sm text-slate-200">
+                    <div class="flex items-center space-x-2">
+                        <i class="fa-solid fa-circle-check text-emerald-400 text-lg"></i>
+                        <span>Resmi Okul Temsilciliği</span>
+                    </div>
+                    <div class="flex items-center space-x-2">
+                        <i class="fa-solid fa-circle-check text-emerald-400 text-lg"></i>
+                        <span>%100 Ücretsiz Danışmanlık</span>
+                    </div>
+                    <div class="flex items-center space-x-2">
+                        <i class="fa-solid fa-circle-check text-emerald-400 text-lg"></i>
+                        <span>Uzman Vize Desteği</span>
+                    </div>
+                    <div class="flex items-center space-x-2">
+                        <i class="fa-solid fa-circle-check text-emerald-400 text-lg"></i>
+                        <span>OET Sınav & Eğitim Merkezi</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Sağ Sütun: Satışa Teşvik Eden Hızlı Bilgi Talep Formu -->
+            <div id="basvuru-formu" class="lg:col-span-5 bg-white text-slate-900 p-8 rounded-2xl shadow-2xl border border-slate-100">
+                <h3 class="text-xl font-bold mb-2 flex items-center text-[#0F172A]">
+                    <i class="fa-solid fa-paper-plane mr-2 text-blue-600"></i> Detaylı Bilgi İsteyin
+                </h3>
+                <p class="text-xs text-slate-500 mb-6">Danışmanlarımız 24 saat içinde sizinle iletişime geçecektir.</p>
+                
+                <form id="leadForm" class="space-y-4" onsubmit="handleFormSubmit(event)">
+                    <div>
+                        <label class="block text-xs font-bold uppercase text-slate-500 mb-1">Adınız Soyadınız *</label>
+                        <input type="text" required class="w-full px-4 py-2.5 border border-slate-200 rounded-lg focus:outline-none focus:border-blue-600 bg-slate-50" placeholder="Örn: Ahmet Yılmaz">
+                    </div>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        <div>
+                            <label class="block text-xs font-bold uppercase text-slate-500 mb-1">Telefon Numarası *</label>
+                            <input type="tel" required class="w-full px-4 py-2.5 border border-slate-200 rounded-lg focus:outline-none focus:border-blue-600 bg-slate-50" placeholder="05xx xxx xx xx">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-bold uppercase text-slate-500 mb-1">E-Posta Adresi *</label>
+                            <input type="email" required class="w-full px-4 py-2.5 border border-slate-200 rounded-lg focus:outline-none focus:border-blue-600 bg-slate-50" placeholder="ahmet@example.com">
+                        </div>
+                    </div>
+                    <div>
+                        <label class="block text-xs font-bold uppercase text-slate-500 mb-1">İlgilendiğiniz Program *</label>
+                        <select required class="w-full px-4 py-2.5 border border-slate-200 rounded-lg focus:outline-none focus:border-blue-600 bg-slate-50 text-slate-600">
+                            <option value="">Seçiniz...</option>
+                            <option value="dil-okulu">Yurtdışı Dil Okulları</option>
+                            <option value="lisans">Lisans (Üniversite) Eğitimi</option>
+                            <option value="yuksek-lisans">Yüksek Lisans / Doktora</option>
+                            <option value="oet">OET Hazırlık & Sınavı</option>
+                            <option value="vize">Sadece Vize Danışmanlığı</option>
+                        </select>
+                    </div>
+                    <button type="submit" class="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-4 rounded-lg shadow-md transition duration-150 uppercase tracking-wider text-sm mt-2">
+                        Ücretsiz Randevu Oluştur
+                    </button>
+                </form>
+                <div id="successMessage" class="hidden mt-4 p-4 bg-emerald-50 text-emerald-700 rounded-lg border border-emerald-200 text-center font-medium">
+                    <i class="fa-solid fa-circle-check mr-1"></i> Talebiniz başarıyla alındı! En kısa sürede arayacağız.
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- HİZMETLERİMİZ -->
+    <section id="hizmetler" class="py-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center max-w-3xl mx-auto mb-16">
+            <h2 class="text-3xl font-extrabold tracking-tight text-[#0F172A] sm:text-4xl">
+                Sizin İçin Neler Yapıyoruz?
+            </h2>
+            <p class="mt-4 text-lg text-slate-600">
+                Global eğitim sürecinizin her aşamasında uzman ve profesyonel kadromuzla yanınızdayız.
+            </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            <!-- Hizmet 1 -->
+            <div class="bg-white p-8 rounded-xl border border-slate-200/60 shadow-sm hover:shadow-md transition">
+                <div class="w-12 h-12 bg-blue-50 text-blue-600 flex items-center justify-center rounded-lg text-xl font-bold mb-5">
+                    <i class="fa-solid fa-graduation-cap"></i>
+                </div>
+                <h3 class="text-lg font-bold text-slate-900 mb-2">Eğitim Danışmanlığı</h3>
+                <p class="text-sm text-slate-600 leading-relaxed">
+                    Akademik geçmişinize ve bütçenize en uygun lisans, yüksek lisans ve doktora opsiyonlarını listeliyoruz.
+                </p>
+            </div>
+            <!-- Hizmet 2 -->
+            <div class="bg-white p-8 rounded-xl border border-slate-200/60 shadow-sm hover:shadow-md transition">
+                <div class="w-12 h-12 bg-blue-50 text-blue-600 flex items-center justify-center rounded-lg text-xl font-bold mb-5">
+                    <i class="fa-solid fa-language"></i>
+                </div>
+                <h3 class="text-lg font-bold text-slate-900 mb-2">Dil Okulları</h3>
+                <p class="text-sm text-slate-600 leading-relaxed">
+                    Dünyanın en seçkin dil okullarında, her yaşa ve seviyeye uygun programları en iyi fiyat garantisiyle sunuyoruz.
+                </p>
+            </div>
+            <!-- Hizmet 3 -->
+            <div class="bg-white p-8 rounded-xl border border-slate-200/60 shadow-sm hover:shadow-md transition">
+                <div class="w-12 h-12 bg-blue-50 text-blue-600 flex items-center justify-center rounded-lg text-xl font-bold mb-5">
+                    <i class="fa-solid fa-passport"></i>
+                </div>
+                <h3 class="text-lg font-bold text-slate-900 mb-2">Vize & Evrak Desteği</h3>
+                <p class="text-sm text-slate-600 leading-relaxed">
+                    Gerekli evrak analizini yapıyor, hata payını sıfırlayarak vize başvurunuzu sizin adınıza eksiksiz tamamlıyoruz.
+                </p>
+            </div>
+            <!-- Hizmet 4 -->
+            <div class="bg-white p-8 rounded-xl border border-slate-200/60 shadow-sm hover:shadow-md transition">
+                <div class="w-12 h-12 bg-blue-50 text-blue-600 flex items-center justify-center rounded-lg text-xl font-bold mb-5">
+                    <i class="fa-solid fa-user-doctor"></i>
+                </div>
+                <h3 class="text-lg font-bold text-slate-900 mb-2">OET Türkiye Merkezi</h3>
+                <p class="text-sm text-slate-600 leading-relaxed">
+                    Sağlık profesyonelleri için OET sınav ve eğitim merkezi olarak uluslararası geçerlilikte resmi rehberlik sağlıyoruz.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- NEDEN BİZ / DEĞER BEYANI -->
+    <section id="neden-biz" class="bg-slate-100 py-20 border-y border-slate-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                <div>
+                    <h2 class="text-3xl font-extrabold text-[#0F172A] tracking-tight sm:text-4xl">
+                        Neden Ücretsiz? <br><span class="text-blue-600">İş Modelimiz Nasıl Çalışıyor?</span>
+                    </h2>
+                    <p class="mt-4 text-slate-600 leading-relaxed">
+                        Öğrencilerimizden danışmanlık, dosya açma veya evrak kontrolü adı altında hiçbir ek ücret <strong>talep etmiyoruz</strong>. Küresel çaptaki resmi partner eğitim kurumlarımız, siz oraya başarıyla yerleştiğinizde bizleri ödüllendirir. Bu komisyon kesinlikle sizin okul ücretinize yansımaz.
+                    </p>
+                    
+                    <div class="mt-8 space-y-4">
+                        <div class="flex items-start">
+                            <div class="flex-shrink-0 mt-1 bg-blue-600 text-white p-1.5 rounded-md text-xs">
+                                <i class="fa-solid fa-scale-balanced"></i>
+                            </div>
+                            <div class="ml-4">
+                                <h4 class="text-md font-bold text-slate-950">Etik Kurallara Bağlılık</h4>
+                                <p class="text-sm text-slate-600">Uluslararası eğitim standartlarının ve etik kuralların tam uygulayıcısıyız.</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <div class="flex-shrink-0 mt-1 bg-blue-600 text-white p-1.5 rounded-md text-xs">
+                                <i class="fa-solid fa-percent"></i>
+                            </div>
+                            <div class="ml-4">
+                                <h4 class="text-md font-bold text-slate-950">En İyi Fiyat Garantisi</h4>
+                                <p class="text-sm text-slate-600">Okulların sunduğu en güncel burs ve indirimli fiyat politikalarını doğrudan yansıtıyoruz.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- İstatistik / Güven Kartları -->
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                    <div class="bg-white p-6 rounded-xl shadow-sm border border-slate-200 text-center">
+                        <div class="text-4xl font-black text-blue-600 mb-1">0 TL</div>
+                        <div class="text-sm font-bold text-slate-800">Danışmanlık Ücreti</div>
+                        <p class="text-xs text-slate-500 mt-2">Tüm süreç baştan sona tamamen ücretsizdir.</p>
+                    </div>
+                    <div class="bg-white p-6 rounded-xl shadow-sm border border-slate-200 text-center">
+                        <div class="text-4xl font-black text-blue-600 mb-1">24 Saat</div>
+                        <div class="text-sm font-bold text-slate-800">Geri Dönüş Süresi</div>
+                        <p class="text-xs text-slate-500 mt-2">Form bırakan adaylara hızla dönüş sağlanır.</p>
+                    </div>
+                    <div class="bg-white p-6 rounded-xl shadow-sm border border-slate-200 text-center">
+                        <div class="text-4xl font-black text-blue-600 mb-1">%100</div>
+                        <div class="text-sm font-bold text-slate-800">Güvenli Başvuru</div>
+                        <p class="text-xs text-slate-500 mt-2">Doğrudan resmi veri tabanlı global acente desteği.</p>
+                    </div>
+                    <div class="bg-white p-6 rounded-xl shadow-sm border border-slate-200 text-center">
+                        <div class="text-4xl font-black text-blue-600 mb-1">Online</div>
+                        <div class="text-sm font-bold text-slate-800">Görüşme İmkanı</div>
+                        <p class="text-xs text-slate-500 mt-2">Zoom, Skype veya WhatsApp üzerinden kesintisiz destek.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- NASIL ÇALIŞIR / SÜREÇ -->
+    <section id="surec" class="py-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center max-w-3xl mx-auto mb-16">
+            <h2 class="text-3xl font-extrabold text-[#0F172A] tracking-tight sm:text-4xl">
+                4 Kolay Adımda Dünya Genelinde Eğitim
+            </h2>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-8 relative">
+            <!-- Adım 1 -->
+            <div class="text-center space-y-3">
+                <div class="w-12 h-12 bg-blue-600 text-white font-bold flex items-center justify-center rounded-full mx-auto text-lg shadow">1</div>
+                <h3 class="font-bold text-lg text-slate-900">Formu Doldurun</h3>
+                <p class="text-sm text-slate-600">Web sitemizden ücretsiz bilgi talep formu oluşturun.</p>
+            </div>
+            <!-- Adım 2 -->
+            <div class="text-center space-y-3">
+                <div class="w-12 h-12 bg-blue-600 text-white font-bold flex items-center justify-center rounded-full mx-auto text-lg shadow">2</div>
+                <h3 class="font-bold text-lg text-slate-900">Profil Analizi</h3>
+                <p class="text-sm text-slate-600">Eğitim geçmişinize göre en ideal okulları ve bursları seçelim.</p>
+            </div>
+            <!-- Adım 3 -->
+            <div class="text-center space-y-3">
+                <div class="w-12 h-12 bg-blue-600 text-white font-bold flex items-center justify-center rounded-full mx-auto text-lg shadow">3</div>
+                <h3 class="font-bold text-lg text-slate-900">Evrak & Vize</h3>
+                <p class="text-sm text-slate-600">Okul kabullerini alıp eksiksiz vize dosyanızı hazırlayalım.</p>
+            </div>
+            <!-- Adım 4 -->
+            <div class="text-center space-y-3">
+                <div class="w-12 h-12 bg-emerald-600 text-white font-bold flex items-center justify-center rounded-full mx-auto text-lg shadow">
+                    <i class="fa-solid fa-plane"></i>
+                </div>
+                <h3 class="font-bold text-lg text-slate-900 text-emerald-700">Yolculuk Başlasın!</h3>
+                <p class="text-sm text-slate-600">Uçuş öncesi oryantasyon ile yeni hayatınıza hazır olun.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- İLETİŞİM & OFİS BİLGİLERİ -->
+    <section id="iletisim" class="bg-slate-900 text-white py-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 lg:grid-cols-3 gap-12">
+            
+            <!-- Ofis Bilgisi -->
+            <div class="space-y-4">
+                <h3 class="text-xl font-bold tracking-tight">İstanbul Ofisimiz</h3>
+                <p class="text-slate-400 text-sm leading-relaxed">
+                    <i class="fa-solid fa-location-dot text-red-500 mr-2"></i> 
+                    Bahariye Cad. Kırtasiyeci Sk. No:17 Kadıköy / İstanbul (34714)
+                </p>
+                <p class="text-slate-400 text-sm">
+                    <i class="fa-solid fa-clock text-blue-400 mr-2"></i> Pazartesi – Cumartesi: 09:00 – 18:00
+                </p>
+            </div>
+
+            <!-- İletişim Kanalları -->
+            <div class="space-y-4">
+                <h3 class="text-xl font-bold tracking-tight">Doğrudan İletişim</h3>
+                <div class="space-y-2 text-sm text-slate-400">
+                    <p><i class="fa-solid fa-phone text-blue-400 mr-2"></i> Sabit Tel: <a href="tel:+902167094171" class="hover:text-white transition">+90 0216 709 41 71</a></p>
+                    <p><i class="fa-brands fa-whatsapp text-emerald-400 mr-2"></i> WhatsApp: <a href="https://wa.me/905523311701" target="_blank" class="hover:text-white transition">0552 331 17 01</a></p>
+                    <p><i class="fa-solid fa-envelope text-blue-400 mr-2"></i> E-mail: <a href="mailto:info@studyinuk-turkey.com" class="hover:text-white transition">info@studyinuk-turkey.com</a></p>
+                </div>
+            </div>
+
+            <!-- Hızlı Aksiyon / Güvenli Link -->
+            <div class="space-y-4">
+                <h3 class="text-xl font-bold tracking-tight">Zaman Kaybetmeyin</h3>
+                <p class="text-sm text-slate-400">Geleceğinizi ertelemeyin. Ofisimize gelemiyorsanız bile Zoom veya Skype üzerinden online randevu talep edebilirsiniz.</p>
+                <a href="#basvuru-formu" class="inline-block bg-blue-600 hover:bg-blue-700 text-white font-bold text-xs uppercase tracking-wider px-4 py-2.5 rounded shadow transition">
+                    Hemen Form Doldur
+                </a>
+            </div>
+        </div>
+
+        <!-- Alt Haklar Bildirimi -->
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-12 pt-8 border-t border-slate-800 text-center text-xs text-slate-500 flex flex-col sm:flex-row items-center justify-between gap-4">
+            <p>&copy; 2026 Study GLOBAL Turkey. Tüm hakları saklıdır. Bu site küresel başvuru merkezi verileriyle optimize edilmiştir.</p>
+            <div class="space-x-4">
+                <a href="#" class="hover:text-slate-300">Gizlilik Politikası</a>
+                <a href="#" class="hover:text-slate-300">KVKK Aydınlatma Metni</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- JavaScript - Basit Form Yönetimi -->
+    <script>
+        function handleFormSubmit(event) {
+            event.preventDefault(); // Sayfa yenilenmesini engeller.
+            
+            // Gerçek senaryoda burada veriler API'ye veya email servisine post edilir.
+            document.getElementById('leadForm').classList.add('hidden');
+            document.getElementById('successMessage').classList.remove('hidden');
+        }
+    </script>
+</body>
+</html>
